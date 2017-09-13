@@ -43,7 +43,7 @@ final public class PopupDialog: UIViewController {
     /// Interactor class for pan gesture dismissal
     fileprivate lazy var interactor = InteractiveTransition()
     
-    var popupWidth: Int = 340
+    public var popupWidth: Int = 340
 
     /// Returns the controllers view
     var popupContainerView: PopupDialogContainerView {
