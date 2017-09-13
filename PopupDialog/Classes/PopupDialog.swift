@@ -47,7 +47,9 @@ final public class PopupDialog: UIViewController {
 
     /// Returns the controllers view
     var popupContainerView: PopupDialogContainerView {
-        return view as! PopupDialogContainerView
+        let newView = view as! PopupDialogContainerView
+        newView.popupWidth = popupWidth
+        return newView
     }
 
     /// The set of buttons
@@ -89,6 +91,7 @@ final public class PopupDialog: UIViewController {
                 buttonAlignment: UILayoutConstraintAxis = .vertical,
                 transitionStyle: PopupDialogTransitionStyle = .bounceUp,
                 gestureDismissal: Bool = true,
+                popupWidth: Int = 340,
                 completion: (() -> Void)? = nil) {
 
         // Create and configure the standard popup dialog view
@@ -98,7 +101,7 @@ final public class PopupDialog: UIViewController {
         viewController.image       = image
 
         // Call designated initializer
-        self.init(viewController: viewController, buttonAlignment: buttonAlignment, transitionStyle: transitionStyle, gestureDismissal: gestureDismissal, completion: completion)
+        self.init(viewController: viewController, buttonAlignment: buttonAlignment, transitionStyle: transitionStyle, gestureDismissal: gestureDismissal, popupWidth: popupWidth, completion: completion)
     }
 
     /*!
@@ -117,8 +120,10 @@ final public class PopupDialog: UIViewController {
         buttonAlignment: UILayoutConstraintAxis = .vertical,
         transitionStyle: PopupDialogTransitionStyle = .bounceUp,
         gestureDismissal: Bool = true,
+        popupWidth: Int = 340,
         completion: (() -> Void)? = nil) {
-
+        
+        self.popupWidth = popupWidth
         self.viewController = viewController
         self.completion = completion
         super.init(nibName: nil, bundle: nil)
