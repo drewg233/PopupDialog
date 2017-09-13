@@ -42,9 +42,11 @@ final public class PopupDialog: UIViewController {
 
     /// Interactor class for pan gesture dismissal
     fileprivate lazy var interactor = InteractiveTransition()
+    
+    var popupWidth: Int = 340
 
     /// Returns the controllers view
-    internal var popupContainerView: PopupDialogContainerView {
+    var popupContainerView: PopupDialogContainerView {
         return view as! PopupDialogContainerView
     }
 
@@ -176,7 +178,7 @@ final public class PopupDialog: UIViewController {
 
     /// Replaces controller view with popup view
     public override func loadView() {
-        view = PopupDialogContainerView(frame: UIScreen.main.bounds)
+        view = PopupDialogContainerView(frame: UIScreen.main.bounds, width: self.popupWidth)
     }
 
     public override func viewWillAppear(_ animated: Bool) {

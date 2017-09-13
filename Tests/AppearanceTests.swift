@@ -20,6 +20,7 @@ class AppearanceTests: XCTestCase {
 
         // Instantiate dialog
         let popup = PopupDialog(title: "Test Title", message: "Test Message")
+        
         expect(popup).toNot(beNil())
 
         // Get popup dialog view
