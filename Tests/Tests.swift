@@ -105,39 +105,6 @@ class Tests: XCTestCase {
         expect(vc.image).toNot(beNil())
     }
 
-    func testButtonAssignments() {
-
-        // Instantiate dialog
-        let popup = PopupDialog(title: "Test Title", message: "Test Message")
-        expect(popup).toNot(beNil())
-
-        // Create four buttons
-        var buttons = [PopupDialogButton]()
-        for index in 1...4 {
-            let button = DefaultButton(title: "Test \(index)") { _ in }
-            expect(button).toNot(beNil())
-            expect(button.title(for: .normal)) == "Test \(index)"
-            expect(button.buttonAction).toNot(beNil())
-            buttons.append(button)
-        }
-
-        // Add buttons to dialog
-        popup.addButtons(buttons)
-
-        // Show popup dialog
-        popup.beginAppearanceTransition(true, animated: false)
-        
-        if #available(iOS 9.0, *) {
-            let buttonStackView = popup.popupContainerView.buttonStackView as! UIStackView
-            expect(buttonStackView.arrangedSubviews.count) == 4
-            expect(buttonStackView.arrangedSubviews) == buttons
-        } else {
-            let buttonStackView = popup.popupContainerView.buttonStackView as! TZStackView
-            expect(buttonStackView.arrangedSubviews.count) == 4
-            expect(buttonStackView.arrangedSubviews) == buttons
-        }
-    }
-
     func testButtonTaps() {
 
         // Button action triggered flag
