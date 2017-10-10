@@ -127,6 +127,7 @@ public extension PopupDialog {
 
         // Reposition and animate
         popupContainerView.centerYConstraint?.constant = popupCenter
+        popupContainerView.setNeedsUpdateConstraints()
         popupContainerView.pv_layoutIfNeededAnimated()
     }
 }
