@@ -28,7 +28,7 @@ import UIKit
 
 /// This extension is designed to handle dialog positioning
 /// if a keyboard is displayed while the popup is on top
-open extension PopupDialog {
+public extension PopupDialog {
 
     // MARK: - Keyboard & orientation observers
 
