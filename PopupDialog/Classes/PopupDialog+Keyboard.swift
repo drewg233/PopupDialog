@@ -28,7 +28,7 @@ import UIKit
 
 /// This extension is designed to handle dialog positioning
 /// if a keyboard is displayed while the popup is on top
-extension PopupDialog {
+open extension PopupDialog {
 
     // MARK: - Keyboard & orientation observers
 
@@ -114,7 +114,7 @@ extension PopupDialog {
         if keyboardShown { centerPopup() }
     }
 
-    func centerPopup() {
+    public func centerPopup() {
 
         // Make sure keyboard should reposition on keayboard notifications
         guard keyboardShiftsView else { return }
