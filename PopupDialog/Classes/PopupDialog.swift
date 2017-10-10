@@ -46,7 +46,7 @@ final public class PopupDialog: UIViewController {
     public var popupWidth: Int = 340
 
     /// Returns the controllers view
-    var popupContainerView: PopupDialogContainerView {
+    public var popupContainerView: PopupDialogContainerView {
         let newView = view as! PopupDialogContainerView
         newView.popupWidth = popupWidth
         return newView
